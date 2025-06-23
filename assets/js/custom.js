@@ -1,19 +1,50 @@
-document.addEventListener('DOMContentLoaded',function(){
+// Global Variables
 
-    let draggables = document.querySelectorAll('.draggable');
+let boardTasks = [];
 
-    draggables.forEach(draggable => () => {
-        console.log("Testing", draggable);
+/////////////////////////////////////////////////
+////// LOAD JSON DATA //////////////
+/////////////////////////////////////////////////
+
+function loadData() {
+  fetch("assets/js/dummy.json")
+    .then((response) => response.json())
+    .then((data) => {
+      boardTasks = data;
+      console.log(boardTasks);
     })
+    .catch((error) => console.error("Error loading data:", error));
+}
 
+// document.addEventListener('DOMContentLoaded',function(){
 
-});
+//     let draggables = document.querySelectorAll('.draggable');
 
+//     draggables.forEach(draggable => () => {
+//         console.log("Testing", draggable);
+//     })
 
-// let taskCard = document.getElementsByClassName('task-card');
+// });
 
+/////////////////////////////////////////////////
+////// APPEND TASKS TO BOARD //////////////
+/////////////////////////////////////////////////
 
-// function toDo(){
-//     console.log("Testing");
+function appendTasksToBoard(boardTasks) {
+  let board = document.getElementById("board");
 
-// }
+  boardTasks.forEach((task) => {
+    let taskCard = document.createElement("div");
+    taskCard.classList.add("task-card");
+    taskCard.innerHTML = task.title;
+
+    board.appendChild(taskCard);
+  });
+}
+
+/////////////////////////////////////////////////
+////// INITIALIZATION //////////////
+/////////////////////////////////////////////////
+
+loadData();
+appendTasksToBoard(boardTasks);

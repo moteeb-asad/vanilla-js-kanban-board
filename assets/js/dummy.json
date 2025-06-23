@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Create a Kanban board UI",
+    "description": "The board should have columns for 'To Do', 'In Progress', and 'Done'.",
+    "status": "todo",
+    "priority": "high"
+  },
+  {
+    "id": 2,
+    "title": "Develop task creation functionality",
+    "description": "Users should be able to add new tasks to the 'To Do' column.",
+    "status": "todo",
+    "priority": "high"
+  },
+  {
+    "id": 3,
+    "title": "Implement drag-and-drop for tasks",
+    "description": "Tasks should be movable between columns.",
+    "status": "todo",
+    "priority": "medium"
+  },
+  {
+    "id": 4,
+    "title": "Style the application",
+    "description": "Add CSS to make the Kanban board look good.",
+    "status": "inprogress",
+    "priority": "medium"
+  },
+  {
+    "id": 5,
+    "title": "Setup backend API",
+    "description": "Create API endpoints to fetch, create, update, and delete tasks.",
+    "status": "inprogress",
+    "priority": "high"
+  },
+  {
+    "id": 6,
+    "title": "Project planning meeting",
+    "description": "Discuss the project roadmap and milestones.",
+    "status": "done",
+    "priority": "low"
+  },
+  {
+    "id": 7,
+    "title": "Initial project setup",
+    "description": "Setup the git repository and initial file structure.",
+    "status": "done",
+    "priority": "high"
+  }
+]
