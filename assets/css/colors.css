@@ -1,0 +1,62 @@
+/* Custom Colors Configuration */
+
+:root {
+  /* Priority Colors */
+  --priority-high: #bf2500;
+  --priority-medium: #ffc303;
+  --priority-low: #10b981;
+
+  /* Priority Background Colors (lighter versions) */
+  --priority-high-bg: #fef2f2;
+  --priority-medium-bg: #fffbeb;
+  --priority-low-bg: #ecfdf5;
+
+  /* Priority Border Colors */
+  --priority-high-border: #fca5a5;
+  --priority-medium-border: #fde68a;
+  --priority-low-border: #86efac;
+}
+
+/* Custom Priority Classes */
+.priority-high {
+  color: var(--priority-high);
+  background-color: var(--priority-high-bg);
+  border-left: 4px solid var(--priority-high);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.priority-medium {
+  color: var(--priority-medium);
+  background-color: var(--priority-medium-bg);
+  border-left: 4px solid var(--priority-medium);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.priority-low {
+  color: var(--priority-low);
+  background-color: var(--priority-low-bg);
+  border-left: 4px solid var(--priority-low);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+/* Task Card Priority Styling */
+.task-card[data-priority="high"] {
+  border-left: 4px solid var(--priority-high);
+}
+
+.task-card[data-priority="medium"] {
+  border-left: 4px solid var(--priority-medium);
+}
+
+.task-card[data-priority="low"] {
+  border-left: 4px solid var(--priority-low);
+}

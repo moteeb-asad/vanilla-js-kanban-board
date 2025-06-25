@@ -1,0 +1,24 @@
+{
+  "name": "vanilla-js-kanban-board",
+  "version": "1.0.0",
+  "description": "A vanilla JavaScript Kanban board with TypeScript support",
+  "main": "index.html",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "tsc --watch & live-server --port=3000",
+    "start": "live-server --port=3000"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/node": "^20.0.0",
+    "live-server": "^1.2.2"
+  },
+  "keywords": [
+    "kanban",
+    "typescript",
+    "vanilla-js"
+  ],
+  "author": "",
+  "license": "MIT"
+}
