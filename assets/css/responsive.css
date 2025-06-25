@@ -1,0 +1,130 @@
+/* Responsive Enhancements for Kanban Board */
+
+/* Mobile-first responsive design */
+@media (max-width: 639px) {
+  /* Stack columns vertically on mobile */
+  .kanban-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Task cards on mobile */
+  .task-card {
+    font-size: 0.875rem;
+    padding: 0.75rem;
+  }
+
+  /* Smaller priority badges on mobile */
+  .priority-high,
+  .priority-medium,
+  .priority-low {
+    font-size: 0.65rem;
+    padding: 1px 4px;
+  }
+
+  /* Touch-friendly buttons */
+  .add-task-button {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    touch-action: manipulation;
+  }
+}
+
+/* Tablet view */
+@media (min-width: 640px) and (max-width: 1023px) {
+  /* 2-column grid for tablets */
+  .kanban-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* Ensure equal height columns */
+  .kanban-column {
+    min-height: 300px;
+  }
+}
+
+/* Desktop view */
+@media (min-width: 1024px) {
+  /* 4-column layout for desktop */
+  .kanban-container {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .kanban-column {
+    flex: 1;
+    min-height: 400px;
+  }
+}
+
+/* Improved scrolling for task lists */
+.task-list {
+  max-height: 70vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.task-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.8);
+}
+
+/* Enhanced touch targets for mobile */
+@media (max-width: 767px) {
+  .task-card {
+    min-height: 80px;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  /* Larger touch targets for icons */
+  .add-task-button {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
+}
+
+/* Responsive container */
+.container {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Task card hover effects for desktop only */
+@media (min-width: 1024px) {
+  .task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}

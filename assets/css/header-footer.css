@@ -1,0 +1,118 @@
+/* Header and Footer Styling */
+
+/* Header styling */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Header logo animation */
+.header-logo {
+  transition: transform 0.2s ease-in-out;
+}
+
+.header-logo:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* Header button animations */
+.header-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.header-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* User avatar hover effect */
+.user-avatar {
+  transition: all 0.2s ease-in-out;
+}
+
+.user-avatar:hover {
+  background-color: #e5e7eb;
+  transform: scale(1.1);
+}
+
+/* Footer styling */
+footer {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+/* Mobile header adjustments */
+@media (max-width: 639px) {
+  header {
+    position: relative; /* Remove sticky on mobile for better scrolling */
+  }
+
+  .header-title {
+    font-size: 1.125rem;
+  }
+
+  .header-subtitle {
+    display: none;
+  }
+
+  .header-logo {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .header-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Ensure proper spacing with sticky header */
+@media (min-width: 640px) {
+  main {
+    padding-top: 0.5rem;
+  }
+}
+
+/* Footer responsive text */
+@media (max-width: 639px) {
+  footer p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Header shadow enhancement */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.2) 50%,
+    transparent 100%
+  );
+}
+
+/* Smooth layout transitions */
+body {
+  transition: padding 0.3s ease-in-out;
+}
+
+/* Header brand hover effect */
+.header-brand {
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.header-brand:hover {
+  opacity: 0.8;
+}

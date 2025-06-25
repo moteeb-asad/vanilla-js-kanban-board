@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "displayId": "TASK-001",
+    "title": "Create a Kanban board UI",
+    "description": "The board should have columns for 'To Do', 'In Progress', 'Review', and 'Done'.",
+    "status": "todo",
+    "priority": "high"
+  },
+  {
+    "id": 2,
+    "displayId": "TASK-002",
+    "title": "Develop task creation functionality",
+    "description": "Users should be able to add new tasks to any column with a dialog form.",
+    "status": "todo",
+    "priority": "high"
+  },
+  {
+    "id": 3,
+    "displayId": "TASK-003",
+    "title": "Implement drag-and-drop for tasks",
+    "description": "Tasks should be movable between columns with visual feedback.",
+    "status": "inprogress",
+    "priority": "medium"
+  },
+  {
+    "id": 4,
+    "displayId": "TASK-004",
+    "title": "Style the application",
+    "description": "Add CSS to make the Kanban board responsive and look professional.",
+    "status": "inprogress",
+    "priority": "medium"
+  },
+  {
+    "id": 5,
+    "displayId": "TASK-005",
+    "title": "Setup TypeScript integration",
+    "description": "Convert vanilla JavaScript to TypeScript with proper types and modular architecture.",
+    "status": "review",
+    "priority": "high"
+  },
+  {
+    "id": 6,
+    "displayId": "TASK-006",
+    "title": "Add persistence with localStorage",
+    "description": "Tasks should persist in localStorage so they remain after page refresh.",
+    "status": "review",
+    "priority": "medium"
+  },
+  {
+    "id": 7,
+    "displayId": "TASK-007",
+    "title": "Project planning meeting",
+    "description": "Discuss the project roadmap and milestones with stakeholders.",
+    "status": "done",
+    "priority": "low"
+  },
+  {
+    "id": 8,
+    "displayId": "TASK-008",
+    "title": "Initial project setup",
+    "description": "Setup the git repository and initial file structure with package.json.",
+    "status": "done",
+    "priority": "high"
+  },
+  {
+    "id": 9,
+    "displayId": "TASK-009",
+    "title": "Task editing functionality",
+    "description": "Allow users to edit existing tasks with inline buttons.",
+    "status": "todo",
+    "priority": "low"
+  },
+  {
+    "id": 10,
+    "displayId": "TASK-010",
+    "title": "Header and footer templates",
+    "description": "Create modular header and footer templates for better organization.",
+    "status": "done",
+    "priority": "medium"
+  }
+]

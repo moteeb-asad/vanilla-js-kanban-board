@@ -1,4 +1,6 @@
 @import "colors.css";
+@import "responsive.css";
+@import "header-footer.css";
 
 .task-card {
   cursor: pointer;

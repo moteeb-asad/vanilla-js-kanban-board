@@ -1,34 +1,65 @@
-# Vanilla JS Kanban Board with TypeScript
+# Kanban Board
 
-A modern Kanban board application built with vanilla JavaScript and TypeScript.
+A modern task management application built with TypeScript and vanilla JavaScript.
 
-## 🚀 Features
+## Tech Stack
 
-- **TypeScript Support**: Type-safe development with modern ES2020 features
-- **Drag & Drop**: Move tasks between columns (coming soon)
-- **Task Management**: Add, edit, and delete tasks
-- **Responsive Design**: Built with Tailwind CSS
-- **No Framework Dependencies**: Pure vanilla JavaScript/TypeScript
+- **TypeScript** - Type-safe development
+- **Vanilla JavaScript** - No framework dependencies
+- **HTML5** - Semantic markup
+- **CSS3** - Custom styling
+- **Tailwind CSS** - Utility-first CSS framework
+- **localStorage** - Data persistence
 
-## 📁 Project Structure
+## Features
+
+- Drag and drop task management
+- Add, edit, and delete tasks
+- Task priority system (High, Medium, Low)
+- Responsive design for all devices
+- Persistent data storage
+- Readable task IDs (TASK-001, TASK-002, etc.)
+
+## Project Structure
 
 ```
 vanilla-js-kanban-board/
-├── src/                    # TypeScript source files
-│   ├── types.ts           # Type definitions
-│   └── kanban.ts          # Main kanban implementation
+├── src/
+│   ├── components/
+│   │   ├── boardManager.ts
+│   │   ├── taskElement.ts
+│   │   └── errorHandler.ts
+│   ├── handlers/
+│   │   └── eventListeners.ts
+│   ├── templates/
+│   │   ├── headerTemplate.ts
+│   │   ├── footerTemplate.ts
+│   │   ├── boardTemplate.ts
+│   │   ├── dialogTemplate.ts
+│   │   └── templateManager.ts
+│   ├── utils/
+│   │   ├── htmlUtils.ts
+│   │   ├── persistence.ts
+│   │   ├── idGenerator.ts
+│   │   └── migration.ts
+│   ├── data/
+│   │   └── dummy.json
+│   ├── types.ts
+│   └── kanban.ts
 ├── assets/
 │   ├── css/
-│   │   └── style.css      # Custom styles
-│   └── js/
-│       ├── dist/          # Compiled JavaScript output
-│       └── dummy.json     # Sample data
-├── index.html             # Main HTML file
-├── package.json           # Dependencies and scripts
-└── tsconfig.json          # TypeScript configuration
+│   │   ├── style.css
+│   │   ├── colors.css
+│   │   ├── responsive.css
+│   │   └── header-footer.css
+│   └── js/dist/          # Compiled JavaScript
+├── index.html
+├── project-details.html
+├── package.json
+└── tsconfig.json
 ```
 
-## 🛠️ Setup Instructions
+## Setup and Installation
 
 ### 1. Install Dependencies
 
@@ -36,109 +67,35 @@ vanilla-js-kanban-board/
 npm install
 ```
 
-This will install:
-
-- TypeScript compiler
-- Live server for development
-- Type definitions for Node.js
-
-### 2. Compile TypeScript
+### 2. Build the Project
 
 ```bash
-# One-time compilation
 npm run build
-
-# Watch mode (automatically recompiles on changes)
-npm run watch
 ```
 
 ### 3. Start Development Server
 
 ```bash
-# Start live server
 npm start
-
-# Or start with auto-compilation
-npm run dev
 ```
 
-### 4. View the Application
+### 4. Access the Application
 
-Open your browser and navigate to `http://localhost:3000`
+Open your browser to `http://localhost:3000`
 
-## 🔧 Available Scripts
+## Available Commands
 
-- `npm run build` - Compile TypeScript to JavaScript
-- `npm run watch` - Watch TypeScript files and auto-compile on changes
-- `npm run dev` - Start watch mode and live server simultaneously
-- `npm start` - Start live server only
-
-## 📝 TypeScript Features Added
-
-### Type Safety
-
-- **Task Interface**: Strongly typed task objects
-- **Status Types**: Union types for task status and priority
-- **Error Handling**: Proper error handling with TypeScript
-
-### Modern Features
-
-- **ES Modules**: Uses ES2020 module system
-- **Async/Await**: Modern async JavaScript patterns
-- **Class-based Architecture**: Object-oriented approach
-- **Type Guards**: Runtime type checking
-
-### Code Examples
-
-#### Task Type Definition
-
-```typescript
-interface Task {
-  id: number;
-  title: string;
-  description: string;
-  status: TaskStatus;
-  priority: TaskPriority;
-}
-
-type TaskStatus = "todo" | "inprogress" | "review" | "done";
-type TaskPriority = "low" | "medium" | "high";
+```bash
+npm run build    # Compile TypeScript
+npm run watch    # Watch for changes and auto-compile
+npm run dev      # Development mode with auto-compilation
+npm start        # Start live server
 ```
 
-#### Adding a New Task
+## Usage
 
-```typescript
-const newTask: Omit<Task, "id"> = {
-  title: "New Task",
-  description: "Task description",
-  status: "todo",
-  priority: "medium",
-};
-
-kanbanBoard.addTask(newTask);
-```
-
-## 🎯 Next Steps
-
-1. **Install Dependencies**: Run `npm install`
-2. **Compile TypeScript**: Run `npm run build`
-3. **Start Development**: Run `npm run dev`
-4. **Add Features**: Implement drag & drop, task editing, etc.
-
-## 🚨 Important Notes
-
-- The HTML file now loads the compiled JavaScript from `assets/js/dist/`
-- Make sure to compile TypeScript before running the application
-- Use `npm run watch` during development for automatic compilation
-- The original `custom.js` file can be removed once TypeScript is working
-
-## 🔄 Migration from JavaScript
-
-Your original JavaScript code has been:
-
-1. **Converted to TypeScript** with proper type annotations
-2. **Organized into classes** for better structure
-3. **Enhanced with error handling** and type safety
-4. **Made more maintainable** with interfaces and type definitions
-
-The functionality remains the same but with improved developer experience and code quality!
+1. **Add Tasks**: Click the "+" button in any column
+2. **Edit Tasks**: Click the edit (✏️) button on any task
+3. **Delete Tasks**: Click the delete (🗑️) button on any task
+4. **Move Tasks**: Drag and drop tasks between columns
+5. **View Details**: Click "Project Details" in the header

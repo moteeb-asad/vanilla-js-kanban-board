@@ -2,6 +2,7 @@
 
 export interface Task {
   id: number;
+  displayId: string; // Readable ID like "TASK-001"
   title: string;
   description: string;
   status: TaskStatus;
