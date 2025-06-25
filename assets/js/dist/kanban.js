@@ -2,12 +2,19 @@ import { setupEventListeners } from "./handlers/eventListeners.js";
 import { appendTasksToBoard } from "./components/boardManager.js";
 import { showErrorMessage } from "./components/errorHandler.js";
 import { TemplateManager } from "./templates/templateManager.js";
-import { loadTasksFromStorage, saveTasks, isStorageAvailable, } from "./utils/persistence.js";
+import { loadTasksFromStorage, saveTasks, isStorageAvailable, isDataIntentionallyCleared, } from "./utils/persistence.js";
 import { initializeTaskNumbering } from "./utils/idGenerator.js";
 import { migrateTasks, needsMigration } from "./utils/migration.js";
 // --- Load data with persistence support ---
 async function loadData() {
     try {
+        // Check if user has intentionally cleared data
+        if (isDataIntentionallyCleared()) {
+            console.log("User has intentionally cleared data, starting with empty board");
+            initializeTaskNumbering([]);
+            appendTasksToBoard([]);
+            return;
+        }
         // First try to load from localStorage
         if (isStorageAvailable()) {
             const storedTasks = loadTasksFromStorage();

@@ -7,6 +7,7 @@ import {
   loadTasksFromStorage,
   saveTasks,
   isStorageAvailable,
+  isDataIntentionallyCleared,
 } from "./utils/persistence.js";
 import { initializeTaskNumbering } from "./utils/idGenerator.js";
 import { migrateTasks, needsMigration } from "./utils/migration.js";
@@ -14,6 +15,16 @@ import { migrateTasks, needsMigration } from "./utils/migration.js";
 // --- Load data with persistence support ---
 async function loadData(): Promise<void> {
   try {
+    // Check if user has intentionally cleared data
+    if (isDataIntentionallyCleared()) {
+      console.log(
+        "User has intentionally cleared data, starting with empty board"
+      );
+      initializeTaskNumbering([]);
+      appendTasksToBoard([]);
+      return;
+    }
+
     // First try to load from localStorage
     if (isStorageAvailable()) {
       const storedTasks = loadTasksFromStorage();

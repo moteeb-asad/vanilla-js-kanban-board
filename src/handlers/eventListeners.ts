@@ -5,8 +5,12 @@ import {
   updateTask,
   deleteTask,
   getBoardTasks,
+  clearBoard,
+  appendTasksToBoard,
 } from "../components/boardManager.js";
 import { createDialogTemplate } from "../templates/dialogTemplate.js";
+import { markDataAsCleared } from "../utils/persistence.js";
+import { renderBoard } from "../templates/boardTemplate.js";
 
 // Current task being edited
 let currentEditingTaskId: number | null = null;
@@ -34,6 +38,75 @@ function setupEventListeners(): void {
 
   // Setup dialog listeners
   setupDialogListeners();
+
+  // Setup clear dummy data listener
+  setupClearDummyDataListener();
+}
+
+// --- Setup clear dummy data listener ---
+function setupClearDummyDataListener(): void {
+  const clearButton = document.getElementById("clear-dummy-data-btn");
+  if (clearButton) {
+    clearButton.addEventListener("click", handleClearDummyData);
+  }
+}
+
+// --- Handle clear dummy data ---
+async function handleClearDummyData(): Promise<void> {
+  if (
+    confirm(
+      "Are you sure you want to clear all current data? This will remove all tasks and start fresh."
+    )
+  ) {
+    try {
+      // Mark data as intentionally cleared
+      markDataAsCleared();
+
+      // Clear the board
+      clearBoard();
+
+      // Hide the clear data section
+      const clearDataSection = document.getElementById("clear-data-section");
+      if (clearDataSection) {
+        clearDataSection.style.display = "none";
+      }
+
+      // Show success message
+      const boardContainer = document.getElementById("board-container");
+      if (boardContainer) {
+        // Create a temporary success message
+        const successMessage = document.createElement("div");
+        successMessage.className =
+          "bg-green-50 border border-green-200 rounded-lg p-4 mb-6";
+        successMessage.innerHTML = `
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="text-sm font-medium text-green-800">Data Cleared Successfully</h3>
+              <p class="text-sm text-green-700">You can now start adding your own tasks to the board.</p>
+            </div>
+          </div>
+        `;
+
+        // Insert success message at the beginning of board container
+        boardContainer.insertBefore(successMessage, boardContainer.firstChild);
+
+        // Remove success message after 3 seconds
+        setTimeout(() => {
+          if (successMessage.parentNode) {
+            successMessage.parentNode.removeChild(successMessage);
+          }
+        }, 3000);
+      }
+
+      console.log("Dummy data cleared successfully");
+    } catch (error) {
+      console.error("Error clearing dummy data:", error);
+      alert("Failed to clear data. Please try again.");
+    }
+  }
 }
 
 // --- Convert column name to TaskStatus ---
