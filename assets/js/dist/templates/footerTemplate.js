@@ -5,7 +5,7 @@ export function createFooterTemplate() {
       <div class="container mx-auto px-4">
         <div class="text-center">
           <p class="text-sm text-gray-600">
-            © 2025 Kanban Board. All rights reserved.
+            © 2026 Kanban Board. All rights reserved.
           </p>
         </div>
       </div>
